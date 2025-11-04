@@ -38,8 +38,9 @@
 
             
             .list {
-                @include m.d-flex(start, center, nowrap, row, 10px, 0);
-                padding: 0 0 0 100px;
+                @include m.d-flex(start, center, nowrap, row, min(100px, 5vw), 0);
+                padding: min(100px, 5vw);
+                
 
                 &__item {
                     &-link {
@@ -48,6 +49,13 @@
                         color: v.$color_white;
                         @extend %hover-black;
                     }
+                }
+            }
+
+            @media (max-width: v.$media_lg) {
+                .list {
+                    @include m.d-flex(center, center, nowrap, row, min(100px, 5vw), 0);
+                    padding: 0 0 0 0;
                 }
             }
         }
